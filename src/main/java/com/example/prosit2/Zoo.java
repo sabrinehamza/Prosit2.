@@ -60,9 +60,9 @@ public class Zoo {
             for (int j = i; j < nbrAnimal - 1; j++) {
                 animals[j] = animals[j + 1];
             }
-            animals[nbrAnimal - 1] = null; // Clear the last element
-            nbrAnimal--; // Decrement the count of animals
-            return true; // Animal removed successfully
+            animals[nbrAnimal - 1] = null; 
+            nbrAnimal--; 
+            return true; 
         }
     }
         return false;
