@@ -3,10 +3,10 @@ package com.example.prosit2;
 public class Main {
     public static void main (String []args){
         Animal lion= new Animal();
-        lion.age= 5;
-        lion.family="cats";
-        lion.name="lion";
-        lion.isMammal=true;
+        lion.setAge(5);
+        lion.setFamily("cats");
+        lion.setName("lion");
+        lion.setMammal(true);
         System.out.println(lion.name);
         System.out.println(lion.age);
 
@@ -15,6 +15,7 @@ public class Main {
         Zoo myZoo= new Zoo("wildlife","ariana",25);
 
         myZoo.displayZoo();
+
 
         System.out.println(myZoo);
         System.out.println(myZoo.toString());
@@ -27,9 +28,13 @@ public class Main {
 
         Animal cat2 = new Animal("clutter", "caty", 2, true);
         myZoo.addAnimal(cat2);
+        Animal cat3 = new Animal("clutter", "caty3", 2, true);
+        myZoo.addAnimal(cat3);
         //affciher les animaux de zoo
         myZoo.afficherZoo();
 //chercher un animal
+
+
         String searchName = "caty";
         int searchAnimal = myZoo.searchAnimal(searchName);
 
@@ -38,12 +43,12 @@ public class Main {
         } else {
             System.out.println("Animal " + searchName + " not found in the zoo.");
         }
-        String suppAnimal="caty";
+        String suppAnimal="";
         boolean remove=myZoo.removeAnimal(suppAnimal);
         if (remove ){System.out.println("animal "+suppAnimal+"supprimé avec succées");}
         else {System.out.println("animal"+suppAnimal+"animal inexistant");}
 
-        myZoo.displayZoo();
+
     }
 
 

@@ -3,10 +3,10 @@ package com.example.prosit2;
 import static java.lang.System.out;
 
 public class Zoo {
-    Animal[] animals;
-    String name;
-    String city;
-    int nbrCages;
+   private Animal[] animals;
+    private String name;
+    private String city;
+   private int nbrCages;
     int nbrAnimal=0;
     public Zoo (String name, String city, int nbrCages){
         this.name=name;
@@ -19,6 +19,7 @@ public class Zoo {
       out.println("My Zoo name is :"+ name+",city is :"+city+"N"+nbrCages);
     }
 
+
     @Override
     public String toString(){
         return "My Zoo name is"+ name +",city is"+ city+ "N de cages" + nbrCages;
@@ -27,9 +28,12 @@ public class Zoo {
     if(nbrAnimal>nbrCages){
         return false;
     }
+    if (isZooFull(this)){
+        return false;
+        }
         animals[nbrAnimal]=animal;
-    nbrAnimal++;
-    return true;
+        nbrAnimal++;
+        return true;
     }
 
 
@@ -37,17 +41,17 @@ public class Zoo {
     public void afficherZoo(){System.out.println("Animals in the zoo:");
     for (int i = 0; i < nbrAnimal; i++) {
         out.println("Animal " + (i + 1) + ":");
-        out.println("Name: " + animals[i].name);
-        out.println("Age: " + animals[i].age);
-        out.println("Family: " + animals[i].family);
-        out.println("Is Mammal: " + animals[i].isMammal);
+        out.println("Name: " + animals[i].getName());
+        out.println("Age: " + animals[i].getAge());
+        out.println("Family: " + animals[i].getFamily());
+        out.println("Is Mammal: " + animals[i].getisMammal());
         out.println("-----------------------------");
     }
 }
 //chercher un animal si il existe ou non
     public int searchAnimal(String animalName) {
         for (int i = 0; i < nbrAnimal; i++) {
-            if (animals[i].name.equals(animalName)) {
+            if (animals[i].getName().equals(animalName)) {
                 return i; // L'animal a été trouvé, renvoie l'indice
             }
         }
@@ -56,7 +60,7 @@ public class Zoo {
 
     public boolean removeAnimal(String animalName)
     {for (int i=0 ; i<nbrAnimal;i++){
-        if (animals[i].name.equals(animalName)){
+        if (animals[i].getName().equals(animalName)){
             for (int j = i; j < nbrAnimal - 1; j++) {
                 animals[j] = animals[j + 1];
             }
@@ -67,6 +71,39 @@ public class Zoo {
     }
         return false;
         }
+        public static boolean isZooFull(Zoo zoo)
+        {return zoo.nbrAnimal >= zoo.nbrCages ;}
+
+    public Animal[] getAnimals() {
+        return animals;
     }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (!name.isEmpty())
+        this.name = name;
+        else System.out.println("le mot ne peux etre vide");
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getNbrCages() {
+        return nbrCages;
+    }
+
+}
 
 
